@@ -1,0 +1,27 @@
+<ion-content>
+
+  <ion-list class="chats-list">
+    <ion-item class="chat" *ngFor="let chat of chats" routerLink="/chat">
+      <ion-avatar slot="start">
+        <!-- <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"> -->
+      </ion-avatar>
+      <ion-label>
+        <h2>
+          {{chat.title}}
+        </h2>
+        <p>
+          {{chat.lastMessage?.text}}
+        </p>
+      </ion-label>
+
+      <div slot="end">
+        <ion-note>{{chat.lastMessage?.timestamp}}</ion-note>
+        <br>
+        <ion-chip *ngIf="chat.pending">
+          <ion-label>{{chat.pending}}</ion-label>
+        </ion-chip>
+      </div>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    
+    <ion-avatar slot="start">
+      <!-- <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"> -->
+    </ion-avatar>
+    
+    <ion-title>
+      Contact name
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <section class="messages-container" #scrollMe>
+    <ng-container *ngFor="let message of messages">
+      <div class="message">
+        <p>{{message.text}}</p>
+        <small>{{message.timestamp}}</small>
+      </div>
+    </ng-container>
+  </section>
+
+</ion-content>
+
+<ion-footer>
+  <div class="new-message-wrapper">
+    <ion-textarea #text rows="1" autoGrow="true"></ion-textarea>
+  </div>
+
+  <div class="send-button-wrapper">
+    <!-- <button ">S</button> -->
+    <ion-button shape="round" size="small" (click)="send(text)">
+      <ion-icon name="send" slot="icon-only"></ion-icon>
+    </ion-button>
+  </div>
+</ion-footer>
