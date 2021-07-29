@@ -7,19 +7,11 @@ import { Component, ElementRef, OnInit, ViewChild, AfterViewChecked } from '@ang
 })
 export class ChatPage implements OnInit {
 
-  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
-  
   public messages:any[] = [];
   
   constructor() { }
 
   ngOnInit() {
-    // this.loadItems();
-  }
-
-  updateScroll(){
-    // console.log(this.myScrollContainer.nativeElement.scrollHeight)
-    // this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
   }
 
   loadItems(){
