@@ -14,14 +14,20 @@
         </p>
       </ion-label>
 
-      <div slot="end">
+      <div class="right-side" slot="end">
         <ion-note>{{chat.lastMessage?.timestamp}}</ion-note>
-        <br>
+        
         <ion-chip *ngIf="chat.pending">
           <ion-label>{{chat.pending}}</ion-label>
         </ion-chip>
       </div>
     </ion-item>
   </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/', 'contacts']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

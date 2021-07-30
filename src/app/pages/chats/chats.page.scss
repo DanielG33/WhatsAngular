@@ -1,0 +1,16 @@
+.chat{
+    .right-side{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        
+        ion-chip{
+            padding: 0;
+            width: 1.4rem;
+            height: 1.4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

@@ -13,7 +13,7 @@ const routes: Routes = [
       },
       {
         path: 'chats',
-        loadChildren: () => import('../pages/chats-list/chats.module').then(m => m.ChatsPageModule)
+        loadChildren: () => import('../pages/chats/chats.module').then(m => m.ChatsPageModule)
       },
       {
         path: '',

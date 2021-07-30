@@ -1,0 +1,7 @@
+.searchbar-container{
+    z-index: 9;
+    transition: ease margin 300ms;
+    &:not(.in){
+        margin-top: -3.2rem;
+    }
+}

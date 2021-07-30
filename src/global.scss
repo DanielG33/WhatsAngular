@@ -28,3 +28,10 @@
 ion-avatar{
     background: rgba(0, 0, 0, .3);
 }
+
+ion-content > ion-list,
+ion-content > ion-list > ion-item{
+    --background: transparent;
+    background: transparent !important;
+    padding: 0;
+}
