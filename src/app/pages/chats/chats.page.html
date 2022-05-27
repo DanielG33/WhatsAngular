@@ -15,9 +15,9 @@
       </ion-label>
 
       <div class="right-side" slot="end">
-        <ion-note>{{chat.lastMessage?.timestamp}}</ion-note>
+        <ion-note [color]="chat.pending ? 'secondary' : null">{{chat.lastMessage?.timestamp}}</ion-note>
         
-        <ion-chip *ngIf="chat.pending">
+        <ion-chip *ngIf="chat.pending" [color]="chat.pending ? 'secondary' : null">
           <ion-label>{{chat.pending}}</ion-label>
         </ion-chip>
       </div>

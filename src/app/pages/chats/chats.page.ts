@@ -13,7 +13,15 @@ export class ChatsPage implements OnInit {
       pending: 5,
       lastMessage: {
         timestamp: '4:02pm',
-        text: 'Testing...'
+        text: 'This is the last message. Gets truncated if too long.'
+      }
+    },
+    {
+      title: 'Another contact',
+      pending: 0,
+      lastMessage: {
+        timestamp: '4:02pm',
+        text: 'You already read the last message. No pending messages.'
       }
     },
   ]
