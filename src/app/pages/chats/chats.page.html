@@ -1,11 +1,12 @@
 <ion-content>
 
   <ion-list class="chats-list">
-    <ion-item class="chat" *ngFor="let chat of chats" routerLink="/chat">
-      <ion-avatar slot="start">
+    <ion-item class="chat" *ngFor="let chat of chats">
+      <ion-avatar slot="start" (click)="showContactProfile(chat.id)">
         <!-- <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"> -->
       </ion-avatar>
-      <ion-label>
+
+      <ion-label [routerLink]="['/', 'chat']">
         <h2>
           {{chat.title}}
         </h2>
@@ -14,7 +15,7 @@
         </p>
       </ion-label>
 
-      <div class="right-side" slot="end">
+      <div class="right-side" slot="end" [routerLink]="['/', 'chat']">
         <ion-note [color]="chat.pending ? 'secondary' : null">{{chat.lastMessage?.timestamp}}</ion-note>
         
         <ion-chip *ngIf="chat.pending" [color]="chat.pending ? 'secondary' : null">

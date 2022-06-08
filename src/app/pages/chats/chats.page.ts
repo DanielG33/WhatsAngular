@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { ContactProfileComponent } from './components/contact-profile/contact-profile.component';
 
 @Component({
   selector: 'app-chats',
@@ -9,6 +11,7 @@ export class ChatsPage implements OnInit {
 
   public chats:any[] = [
     {
+      id: 'chat1',
       title: 'Contact name',
       pending: 5,
       lastMessage: {
@@ -17,6 +20,7 @@ export class ChatsPage implements OnInit {
       }
     },
     {
+      id: 'chat2',
       title: 'Another contact',
       pending: 0,
       lastMessage: {
@@ -26,9 +30,26 @@ export class ChatsPage implements OnInit {
     },
   ]
   
-  constructor() { }
+  constructor(private modalController: ModalController) { }
 
   ngOnInit() {
+  }
+
+  async showContactProfile(chatId:string){    
+    const modal = await this.modalController.create({
+      component: ContactProfileComponent,
+      canDismiss: true,
+      cssClass: 'modal-transparent',
+      showBackdrop: true,
+      componentProps: {
+        contact: {
+          name: 'Contact name',
+          avatar: 'https://picsum.photos/300',
+        }
+      }
+    })
+
+    return await modal.present();
   }
 
 }

@@ -35,3 +35,8 @@ ion-content > ion-list > ion-item{
     background: transparent !important;
     padding: 0;
 }
+
+// Modal
+.modal-transparent{
+    --background: transparent !important;
+}

@@ -1,4 +1,8 @@
 .chat{
+    ion-label{
+        outline: none;
+    }
+    
     .right-side{
         display: flex;
         flex-direction: column;
