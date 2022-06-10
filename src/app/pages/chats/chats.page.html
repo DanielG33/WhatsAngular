@@ -3,15 +3,15 @@
   <ion-list class="chats-list">
     <ion-item class="chat" *ngFor="let chat of chats">
       <ion-avatar slot="start" (click)="showContactProfile(chat.id)">
-        <!-- <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"> -->
+        <img [src]="chat.contact.thumbnail">
       </ion-avatar>
 
       <ion-label [routerLink]="['/', 'chat']">
         <h2>
-          {{chat.title}}
+          {{chat.contact.name}}
         </h2>
         <p>
-          {{chat.lastMessage?.text}}
+          {{chat.lastMessage?.content}}
         </p>
       </ion-label>
 

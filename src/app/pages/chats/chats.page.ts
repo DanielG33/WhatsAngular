@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Store } from '@ngrx/store';
 import { ContactProfileComponent } from './components/contact-profile/contact-profile.component';
 
 @Component({
@@ -9,30 +10,14 @@ import { ContactProfileComponent } from './components/contact-profile/contact-pr
 })
 export class ChatsPage implements OnInit {
 
-  public chats:any[] = [
-    {
-      id: 'chat1',
-      title: 'Contact name',
-      pending: 5,
-      lastMessage: {
-        timestamp: '4:02pm',
-        text: 'This is the last message. Gets truncated if too long.'
-      }
-    },
-    {
-      id: 'chat2',
-      title: 'Another contact',
-      pending: 0,
-      lastMessage: {
-        timestamp: '4:02pm',
-        text: 'You already read the last message. No pending messages.'
-      }
-    },
-  ]
+  public chats:any[] = []
   
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController, private store:Store<{chats: any[]}>) { }
 
   ngOnInit() {
+    this.store.select('chats').subscribe(res => {
+      this.chats = res || [];
+    })
   }
 
   async showContactProfile(chatId:string){    

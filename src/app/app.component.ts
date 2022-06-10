@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { loadContacts } from './store/actions/contacts';
+import { loadContacts, loadChats } from './store/actions';
 
 import CONTACTS from '../assets/dummy-data/contacts.json';
+import CHATS from '../assets/dummy-data/chats.json';
 
 @Component({
   selector: 'app-root',
@@ -14,9 +15,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadContacts();
+    this.loadChats();
   }
   
   private loadContacts(){
     this.store.dispatch(loadContacts({contacts: CONTACTS}))
+  }
+  
+  private loadChats(){
+    this.store.dispatch(loadChats({chats: CHATS}))
   }
 }
