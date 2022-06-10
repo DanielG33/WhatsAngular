@@ -8,6 +8,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class ImageViewerComponent implements OnInit {
 
+  @Input() public title:string;
   @Input() public src:string;
   @Input() private zoom:boolean = true;
   

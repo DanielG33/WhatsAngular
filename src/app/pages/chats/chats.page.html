@@ -2,7 +2,7 @@
 
   <ion-list class="chats-list">
     <ion-item class="chat" *ngFor="let chat of chats">
-      <ion-avatar slot="start" (click)="showContactProfile(chat.id)">
+      <ion-avatar slot="start" (click)="showContactProfile(chat.contact)">
         <img [src]="chat.contact.thumbnail">
       </ion-avatar>
 

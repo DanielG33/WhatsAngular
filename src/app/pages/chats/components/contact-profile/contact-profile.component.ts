@@ -17,14 +17,15 @@ export class ContactProfileComponent implements OnInit {
 
   ngOnInit() {}
 
-  public async openImageViewer(src:string){
+  public async openImageViewer({name, thumbnail}){
     const modal = await this.modalCtrl.create({
       component: ImageViewerComponent,
       canDismiss: true,
-      componentProps: { src }
+      componentProps: { title: name, src: thumbnail }
     })
 
     modal.present();
+    this.modalCtrl.dismiss();
   }
 
 }

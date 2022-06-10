@@ -20,18 +20,13 @@ export class ChatsPage implements OnInit {
     })
   }
 
-  async showContactProfile(chatId:string){    
+  async showContactProfile(contact:string){    
     const modal = await this.modalController.create({
       component: ContactProfileComponent,
       canDismiss: true,
       cssClass: 'modal-transparent',
       showBackdrop: true,
-      componentProps: {
-        contact: {
-          name: 'Contact name',
-          avatar: 'https://picsum.photos/300',
-        }
-      }
+      componentProps: { contact }
     })
 
     return await modal.present();
