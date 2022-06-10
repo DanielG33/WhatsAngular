@@ -4,9 +4,13 @@ import { PopoverController } from '@ionic/angular';
 import { TopRightMenuComponent } from './components/top-right-menu/top-right-menu.component';
 import { debounceTime } from 'rxjs/operators';
 
+import { Store } from '@ngrx/store';
+
 interface Contact{
+  id:string,
   name: string,
-  info?: string
+  info?: string,
+  thumbnail:string
 }
 
 @Component({
@@ -19,37 +23,20 @@ export class ContactsPage implements OnInit {
   public showSearchbar:boolean = false;
   public searchbar:FormControl;
   
-  private _contacts:Contact[] = [
-    {
-      name: 'My first contact',
-      info: `My name isn't "My"`
-    },
-    {
-      name: 'Andres'
-    },
-    {
-      name: 'Joel'
-    },
-    {
-      name: 'Lady'
-    },
-    {
-      name: 'Rosmer'
-    },
-    {
-      name: 'Patricia'
-    },
-    {
-      name: 'Tomas'
-    },
-  ]
-  public contacts:Contact[];
+  private _contacts:Contact[] = []
+  public contacts:Contact[] = [];
   
-  constructor(private popoverCtrl: PopoverController) {
-    this.contacts = this._contacts.sort((a, b) => a.name > b.name ? 1 : -1)
+  constructor(private store: Store<{contacts: any[]}>, private popoverCtrl: PopoverController) {
   }
 
   ngOnInit() {
+    this.store.select('contacts').subscribe(res => {
+      const searchTerm:string = this.searchbar?.value || '';
+      
+      this._contacts = res;
+      this.filterContacts(searchTerm)
+    })
+    
     this.buildSearchForm();
   }
 
@@ -67,7 +54,6 @@ export class ContactsPage implements OnInit {
   
   private openSearchbar(){
     this.showSearchbar = true;
-    console.log(this.searchbar)
   }
   
   private closeSearchbar(){

@@ -1,0 +1,33 @@
+[
+    {
+        "id": "aaa111",
+        "name": "Andrés",
+        "info": "Dummy text",
+        "thumbnail": "https://i.picsum.photos/id/510/500/500.jpg?hmac=ieE9er69Wk7u0kHxg_bcHOYdzKNFImw7KX-c9Z14Pa8"
+    },
+    {
+        "id": "aaa222",
+        "name": "Joel",
+        "thumbnail": "https://i.picsum.photos/id/760/500/500.jpg?hmac=dA5Qn49QPKSckraLl00DTRoFUwenDXoqxR8jYTcteD0"
+    },
+    {
+        "id": "aaa333",
+        "name": "Lady",
+        "thumbnail": "https://i.picsum.photos/id/194/500/500.jpg?hmac=om5k-9p7KzqQ0sWf3tM_n3JP05skQy3Cw84sBidX7iw"
+    },
+    {
+        "id": "bbb111",
+        "name": "Rosmer",
+        "thumbnail": "https://i.picsum.photos/id/907/500/500.jpg?hmac=1JG7-2YxQq4FkxYTIwNTsXH1FJw5WZoGoXCTCONnoJw"
+    },
+    {
+        "id": "bbb222",
+        "name": "Patricia",
+        "thumbnail": "https://i.picsum.photos/id/705/500/500.jpg?hmac=8LnfL2R-2-z-3SsB0yQU69qZ8hFqb7w8th6KuHaTOOQ"
+    },
+    {
+        "id": "bbb333",
+        "name": "Tomas",
+        "thumbnail": "https://i.picsum.photos/id/452/500/500.jpg?hmac=ZzJKK-Xzel3RTE6rbILQu0fUTdY4rl8dFIGmmOMIhH8"
+    }
+]
