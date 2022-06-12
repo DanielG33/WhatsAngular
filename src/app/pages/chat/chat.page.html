@@ -3,11 +3,11 @@
     <ion-back-button slot="start"></ion-back-button>
     
     <ion-avatar slot="start">
-      <!-- <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"> -->
+      <img [src]="contact?.thumbnail">
     </ion-avatar>
     
     <ion-title>
-      Contact name
+      {{contact?.name}}
     </ion-title>
 
   </ion-toolbar>
@@ -18,8 +18,8 @@
   <section class="messages-container">
     <ng-container *ngFor="let message of messages">
       <div class="message">
-        <p>{{message.text}}</p>
-        <small>{{message.timestamp}}</small>
+        <p>{{message.content}}</p>
+        <small>{{message.timestamp | date : 'hh:mm aa'}}</small>
       </div>
     </ng-container>
   </section>
@@ -32,7 +32,6 @@
   </div>
 
   <div class="send-button-wrapper">
-    <!-- <button ">S</button> -->
     <ion-button shape="round" size="small" (click)="send(text)">
       <ion-icon name="send" slot="icon-only"></ion-icon>
     </ion-button>

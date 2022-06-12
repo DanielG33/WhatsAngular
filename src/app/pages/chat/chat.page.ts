@@ -1,4 +1,8 @@
-import { Component, ElementRef, OnInit, ViewChild, AfterViewChecked } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { selectChat } from '../../store/selectors/chat'
+import { insertMessage, markAsRead } from 'src/app/store/actions';
 
 @Component({
   selector: 'app-chat',
@@ -7,38 +11,43 @@ import { Component, ElementRef, OnInit, ViewChild, AfterViewChecked } from '@ang
 })
 export class ChatPage implements OnInit {
 
+  private chatId:string;
+  public contact:any;
   public messages:any[] = [];
   
-  constructor() { }
+  constructor(private route: ActivatedRoute, private store: Store<{chats: any}>) { }
 
   ngOnInit() {
+    this.chatId = this.route.snapshot.paramMap.get('id');
+
+    this.store.dispatch(markAsRead({ chatId: this.chatId }))
+    
+    this.store.select(selectChat(this.chatId)).subscribe(res => {
+      this.messages = [...res.messages].reverse() || []
+      
+      if(!this.contact)
+        this.contact = res.contact;
+    })
   }
 
-  loadItems(){
-    let offset = this.messages.length;
-    for(let i = 0; i < 20; i++){
-      this.messages.unshift({text: (offset + i)})
+  send(input:HTMLInputElement){
+    const content = input.value;
+    
+    if(!content || content == '')
+      return
+    
+    const message = {
+      content,
+      timestamp: this.getCurrentTime(),
+      from: 'dddgg33'
     }
-  }
+    this.store.dispatch(insertMessage({chatId: this.chatId, message}))
 
-  send(input){
-    const text = input.value;
-    const timestamp = this.getCurrentTime();
-    this.messages.unshift({text, timestamp})
     input.value = '';
   }
 
   getCurrentTime(){
     let date = new Date();
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    let meridiem = 'a.m.';
-
-    if(hours > 12){
-      hours -= 12;
-      meridiem = 'p.m.';
-    }
-
-    return `${hours}:${minutes} ${meridiem}`;
+    return date.getTime();
   }
 }

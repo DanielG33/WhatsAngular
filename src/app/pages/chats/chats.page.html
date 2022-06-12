@@ -6,7 +6,7 @@
         <img [src]="chat.contact.thumbnail">
       </ion-avatar>
 
-      <ion-label [routerLink]="['/', 'chat']">
+      <ion-label [routerLink]="['/', 'chat', chat.id]">
         <h2>
           {{chat.contact.name}}
         </h2>
@@ -15,8 +15,8 @@
         </p>
       </ion-label>
 
-      <div class="right-side" slot="end" [routerLink]="['/', 'chat']">
-        <ion-note [color]="chat.pending ? 'secondary' : null">{{chat.lastMessage?.timestamp}}</ion-note>
+      <div class="right-side" slot="end" [routerLink]="['/', 'chat', chat.id]">
+        <ion-note [color]="chat.pending ? 'secondary' : null">{{chat.lastMessage?.timestamp | date : 'hh:mm aa'}}</ion-note>
         
         <ion-chip *ngIf="chat.pending" [color]="chat.pending ? 'secondary' : null">
           <ion-label>{{chat.pending}}</ion-label>

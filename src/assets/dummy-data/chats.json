@@ -6,11 +6,24 @@
             "name": "Lady",
             "thumbnail": "https://i.picsum.photos/id/194/500/500.jpg?hmac=om5k-9p7KzqQ0sWf3tM_n3JP05skQy3Cw84sBidX7iw"
         },
-        "pending": 5,
+        "pending": 1,
         "lastMessage": {
             "content": "This is the last message. Gets truncated if too long.",
-            "timestamp": "4:02pm"
-        }
+            "from": "aaa333",
+            "timestamp": 1655066690713
+        },
+        "messages": [
+            {
+                "content": "Testing message",
+                "from": "ddgg33",
+                "timestamp": 1655066510609
+            },
+            {
+                "content": "This is the last message. Gets truncated if too long.",
+                "from": "aaa333",
+                "timestamp": 1655066690713
+            }
+        ]
     },
     {
         "id": "chat002",
@@ -20,9 +33,7 @@
             "thumbnail": "https://i.picsum.photos/id/907/500/500.jpg?hmac=1JG7-2YxQq4FkxYTIwNTsXH1FJw5WZoGoXCTCONnoJw"
         },
         "pending": 0,
-        "lastMessage": {
-            "content": "You already read the last message. No pending messages.",
-            "timestamp": "1:47pm"
-        }
+        "lastMessage": {},
+        "messages": []
     }
 ]
