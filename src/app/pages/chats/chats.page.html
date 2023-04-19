@@ -11,6 +11,7 @@
           {{chat.contact.name}}
         </h2>
         <p>
+          <span *ngIf="chat.lastMessage?.from === 'dddgg33'">You: </span>
           {{chat.lastMessage?.content}}
         </p>
       </ion-label>

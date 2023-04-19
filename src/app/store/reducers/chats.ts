@@ -5,9 +5,9 @@ export const initialState = [];
 
 export const chatsReducer = createReducer(initialState,
     
-    on(loadChats, (state, {chats}) => state.concat(chats)),
+    on(loadChats, (state, {chats}) => [...state, ...chats]),
 
-    on(insertMessage, (state, {chatId, message}) => state.map(chat => {
+    on(insertMessage, (state, {chatId, message}) => [...state].map(chat => {
         if(chat.id === chatId)
             return {
                 ...chat,
